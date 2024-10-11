@@ -1,11 +1,16 @@
 import requests
 import pprint
 
-params = {'q':'html'}
+# Параметры для запроса
+params = {'userId': 1}
 
-response = requests.get("https://api.github.com/search/repositories", params=params)
+# Отправляем GET-запрос
+response = requests.get("https://jsonplaceholder.typicode.com/posts", params=params)
 
-print(response.status_code)
-response_json = response.json()
-
-pprint.pprint(response_json)
+# Проверяем статус-код ответа
+if response.status_code == 200:
+    # Получаем и распечатываем содержимое ответа в формате JSON
+    response_json = response.json()
+    pprint.pprint(response_json)
+else:
+    print("Ошибка при выполнении запроса:", response.status_code)
