@@ -1,16 +1,19 @@
 import requests
 import pprint
 
-# Параметры для запроса
-params = {'userId': 1}
+# Создаем словарь с данными для отправки
+data = {
+    'title': 'foo',
+    'body': 'bar',
+    'userId': 1
+}
 
-# Отправляем GET-запрос
-response = requests.get("https://jsonplaceholder.typicode.com/posts", params=params)
+# Отправляем POST-запрос
+response = requests.post("https://jsonplaceholder.typicode.com/posts", json=data)
 
-# Проверяем статус-код ответа
-if response.status_code == 200:
-    # Получаем и распечатываем содержимое ответа в формате JSON
-    response_json = response.json()
-    pprint.pprint(response_json)
-else:
-    print("Ошибка при выполнении запроса:", response.status_code)
+# Выводим статус-код ответа
+print(response.status_code)
+
+# Получаем и распечатываем содержимое ответа в формате JSON
+response_json = response.json()
+pprint.pprint(response_json)
