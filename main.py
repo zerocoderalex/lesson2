@@ -1,19 +1,10 @@
-import requests
-import pprint
 
-# Создаем словарь с данными для отправки
-data = {
-    'title': 'foo',
-    'body': 'bar',
-    'userId': 1
-}
+from selenium import webdriver
+import time
 
-# Отправляем POST-запрос
-response = requests.post("https://jsonplaceholder.typicode.com/posts", json=data)
 
-# Выводим статус-код ответа
-print(response.status_code)
+browser = webdriver.Chrome()
+browser.get("https://en.wikipedia.org/wiki/Document_Object_Model")
+time.sleep(10)
+browser.quit()
 
-# Получаем и распечатываем содержимое ответа в формате JSON
-response_json = response.json()
-pprint.pprint(response_json)
