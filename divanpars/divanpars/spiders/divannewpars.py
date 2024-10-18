@@ -14,4 +14,5 @@ class DivannewparsSpider(scrapy.Spider):
                 'price': svet.css('div.pY3d2 span::text').get(),
                 'url': svet.css('a').attrib['href']
             }
-# scrapy crawl divannewpars
+
+
