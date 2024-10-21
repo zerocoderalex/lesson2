@@ -1,10 +1,13 @@
 import scrapy
+import csv
+from test import response
 
 
 class DivannewparsSpider(scrapy.Spider):
     name = "divannewpars"
     allowed_domains = ["https://divan.ru"]
     start_urls = ["https://www.divan.ru/category/svet"]
+svets = []
 
     def parse(self, response):
         svets = response.css('div._Ud0k')
