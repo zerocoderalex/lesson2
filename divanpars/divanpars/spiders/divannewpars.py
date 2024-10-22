@@ -6,16 +6,16 @@ from test import response
 class DivannewparsSpider(scrapy.Spider):
     name = "divannewpars"
     allowed_domains = ["https://divan.ru"]
-    start_urls = ["https://www.divan.ru/category/svet"]
-svets = []
+    start_urls = ["https://www.divan.ru/category/divany-i-kresla"]
+# divannewparss = []
 
     def parse(self, response):
-        svets = response.css('div._Ud0k')
-        for svet in svets:
+        divans = response.css('div._Ud0k')
+        for divan in divans:
             yield {
-                'name' : svet.css('div.lsooF span::text').get(),
-                'price': svet.css('div.pY3d2 span::text').get(),
-                'url': svet.css('a').attrib['href']
+                'name' : divan.css('div.lsooF span::text').get(),
+                'price': divan.css('div.pY3d2 span::text').get(),
+                'url': divan.css('a').attrib['href']
             }
 
 
