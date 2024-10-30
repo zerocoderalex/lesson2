@@ -5,27 +5,24 @@ from selenium.webdriver.common.by import By
 
 
 driver = webdriver.Chrome()
-parsed_data = []
+
 url = 'https://www.divan.ru/kazan/category/svet"/'
 driver.get(url)
 
-def append_parsed_data(url):
-    print("Start parsing")
-    driver.get(url)
 
-time.sleep(30)
+time.sleep(10)
 
 
 cvets = driver.find_elements(By.CLASS_NAME, "div._Ud0k")
-print(cvets)
 
 
+parsed_data = []
 
 for cvet in cvets:
     try:
-        title = cvet.find_element(By.CSS_SELECTOR, "div.lsooF").find_element(By.TAG_NAME, 'span').text
-        price =cvet.find_element(By.CSS_SELECTOR, "div.q5Uds").find_element(By.TAG_NAME, "span").text
-        link = cvet.find_element(By.TAG_NAME, 'a').get_attribute("href")
+        title = cvet.find_element(By.CSS_SELECTOR, 'span[itemprop="name"]').text
+        price = cvet.find_element(By.CSS_SELECTOR, 'span.ui-LD-ZU').text
+        link = cvet.find_element(By.CSS_SELECTOR, value='a.ui-GPFV8.qUioe.ProductName').get_attribute('href')
     except:
         print("Ошибка")
         continue
