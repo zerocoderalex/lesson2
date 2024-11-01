@@ -20,8 +20,8 @@ body {
 }
 
 .photo img {
-    width: 100%; /* Изображение занимает всю ширину карточки */
-    height: auto;
+    width: auto;
+    height: 75%;
 }
 
 .info {
