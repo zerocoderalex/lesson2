@@ -1,0 +1,30 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Распределяет пространство между карточками */
+}
+
+.card {
+    width: calc(50% - 10px); /* Две карточки в ряд с учетом отступа */
+    margin-bottom: 20px; /*
+*/
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.photo img {
+    width: 100%; /* Изображение занимает всю ширину карточки */
+    height: auto;
+}
+
+.info {
+    padding: 15px;
+}
