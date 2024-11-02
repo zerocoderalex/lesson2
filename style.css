@@ -17,6 +17,13 @@ body {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-20px); /* Поднимаем карточку вверх при наведении */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Увеличиваем тень при наведении */
+    border-color: #007BFF; /* Меняем цвет границы при наведении */
 }
 
 .photo img {
